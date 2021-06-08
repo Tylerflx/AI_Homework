@@ -1,5 +1,4 @@
-from player import ComputerPlayer, HumanPlayer
-import time
+from player import AIPlayer, HumanPlayer
 
 class TicTacToe:
     def __init__(self):
@@ -82,6 +81,6 @@ def play(game, x_player, o_player, print_game=True):
 #driver code
 if __name__ == '__main__':
     x_player = HumanPlayer('X')
-    o_player = ComputerPlayer('O')
+    o_player = AIPlayer('O')
     t = TicTacToe()
     play(t, x_player, o_player, True)
