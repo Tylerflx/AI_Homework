@@ -1,0 +1,33 @@
+A1 thoughts:
+
+Shortest Route
+Project Notes:
+
+Credits:
+This implementation to solve the shortest route problem to the assignment specifications was heavily inspired by the provided source code
+in the official AIMA github repository posted in the Canvas Module 2 resources, and a few Github users who contributed to the 
+Official AIMA repo. All repositories I took inspiration from are linked below:
+https://github.com/aimacode/aima-python/blob/master/search.py
+https://github.com/kevinrosalesdev/Searching-Algorithms
+https://github.com/Addeuz/aima
+
+Each repository provided extremely valuable insight and a robust skeleton from which I could not only implement A1, 
+but also served as an enriching resource to learn about practical implementations of search algorithms.
+I can't thank these resources enough and all the credit goes to all of the wonderful people who contributed to the AIMA repo.
+
+Process/Learning
+I tackled Part 1 by trying to understand the provided source code, as the professor advised it's a good idea to start from there.
+I quickly realized how complex the source code's implementation was, and was pretty intimidated. The source repo included advanced
+data structures, cutting-edge python methods/operations, and advanced use of object oriented programming including inheritance.
+
+So I researched and spent several days understanding how:
+Each searching algorithm was implemented, understanding the utiltiy functions necessary to the implementation, tracing how each algorithm
+solves the problem step-by-step, figuring out how to keep track of the city's distances, and calling them to display them to the screen.
+
+Processes and Obstacles/Hurdles:
+Quite honestly, the biggest obstacle wasn't the conceptual or practical implementation of the search algorithms, but rather having to catch
+up on my python knowledge to have the ability to adequately understand the source code and adapt it to what I wanted to solve.
+Understanding how the search algorithm implementations were encapsulated using OOP to create general purpose and robust solutions to
+several kinds of search problems. 
+This assignment definitely exposed my python weaknesses and I feel better off for it.
+
