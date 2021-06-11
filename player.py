@@ -8,15 +8,6 @@ class Player:
     def get_move(self, game):
         pass
 
-
-# class ComputerPlayer(Player):
-#     def __init__(self, letter):
-#         super().__init__(letter)
-
-#     def get_move(self, game):
-#         square = random.choice(game.available_moves())
-#         return square
-
 class HumanPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)

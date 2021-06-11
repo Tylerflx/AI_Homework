@@ -80,7 +80,17 @@ def play(game, x_player, o_player, print_game=True):
 
 #driver code
 if __name__ == '__main__':
-    x_player = HumanPlayer('X')
-    o_player = AIPlayer('O')
-    t = TicTacToe()
-    play(t, x_player, o_player, True)
+    print('')
+    print('''This TicTacToe game AI robot vs player will use MinMax algorithm to perform an adversarial search \nwhich will find the best stragery to play 3x3 tictactoe game, \nit will try to find the best way to win or tie a game''')
+    # print('')
+    next_game = True
+    while next_game:
+        x_player = HumanPlayer('X')
+        o_player = AIPlayer('O')
+        t = TicTacToe()
+        play(t, x_player, o_player, True)
+        choice = input('Do you want to play again? (y/n): ')
+        if choice != 'Y' or 'y':
+            next_game = False
+
+        
