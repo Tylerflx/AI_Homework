@@ -8,10 +8,12 @@ class Player:
     def get_move(self, game):
         pass
 
+#human player class
 class HumanPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
+    #get move from input
     def get_move(self, game):
         valid_square = False
         val = None
@@ -20,27 +22,29 @@ class HumanPlayer(Player):
             #this will check if the user's input is valid
             try:
                 val = int(square)
-                if val not in game.available_moves():
+                if val not in game.available_moves(): #input should be available white empty spaces
                     raise ValueError
                 valid_square = True
             except ValueError:
-                print('Invalid square. Try again.')
+                print('Invalid square. Try again.') #raise error if the user put wrong inputs
         return val
 
 class AIPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
     def get_move(self, game):
-        if len(game.available_moves()) == 9:
-            square = random.choice(game.available_moves())
+        if len(game.available_moves()) == 9: #if the game just started
+            square = random.choice(game.available_moves()) #make a random choice
         else:
-            square = self.minmax(game, self.letter)['position']
+            square = self.minmax(game, self.letter)['position'] #other wise started minmax algorithm to play the game
         return square
     
+    #minmax algorithm
     def minmax(self, state, player):
         max_player = self.letter
         other_player = 'O' if player == 'X' else 'X'
 
+        #create a tree of decision to make the best move
         if state.current_winner == other_player:
             return {'position': None,
                     'score': 1 * (state.num_empty_squares() + 1) if other_player == max_player else -1
@@ -53,6 +57,7 @@ class AIPlayer(Player):
         else:
             best = {'position': None, 'score': math.inf}
         
+        #once calculated the best move, start make a move
         for posible_move in state.available_moves():
             #step 1
             state.make_move(posible_move, player)

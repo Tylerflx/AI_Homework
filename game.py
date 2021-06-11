@@ -1,3 +1,4 @@
+
 from player import AIPlayer, HumanPlayer
 
 class TicTacToe:
@@ -10,6 +11,7 @@ class TicTacToe:
 
     @staticmethod
     def print_board_nums():
+        '''This function will print the numbered board for guide'''
         number_board = [[str(i) for i in range(j*3, (j+1)* 3)] for j in range(3)]
         for row in number_board:
             print('| ' + ' | '.join(row) + ' |')
@@ -24,14 +26,16 @@ class TicTacToe:
         return self.board.count(' ')
     
     def make_move(self, square, letter):
-        if self.board[square] == ' ':
-            self.board[square] = letter
+        '''This function will make the move'''
+        if self.board[square] == ' ': #if the board have empty space
+            self.board[square] = letter #set the letter X or O
             if self.winner(square, letter):
                 self.current_winner = letter
             return True
         return False
 
     def winner(self, square, letter):
+        '''This function check if there is a winner'''
         #check row
         row_ind = square // 3
         row = self.board[row_ind*3 : (row_ind + 1) * 3]
@@ -52,7 +56,9 @@ class TicTacToe:
                 return True
         #if all of these fail
         return False
+
 def play(game, x_player, o_player, print_game=True):
+    '''This function will start to play the game'''
     if print_game:
         game.print_board_nums()
 
@@ -73,7 +79,6 @@ def play(game, x_player, o_player, print_game=True):
                     print(letter + ' wins!')
                 return letter
             letter = 'O' if letter == 'X' else 'X' # other turn's
-        
     if print_game:
         print('It is a tie!')
 
@@ -85,11 +90,11 @@ if __name__ == '__main__':
     # print('')
     next_game = True
     while next_game:
-        x_player = HumanPlayer('X')
-        o_player = AIPlayer('O')
-        t = TicTacToe()
-        play(t, x_player, o_player, True)
-        choice = input('Do you want to play again? (y/n): ')
+        x_player = HumanPlayer('X') #set human X
+        o_player = AIPlayer('O') #robot O
+        t = TicTacToe() #set up the board
+        play(t, x_player, o_player, True) #start playing
+        choice = input('Do you want to play again? (y/n): ') #ask user if they want to continue
         if choice != 'Y' or 'y':
             next_game = False
 
